@@ -13,7 +13,8 @@
      }
      .auto-style2 {
          height: 51px;
-     }
+             margin-left: 40px;
+         }
          .auto-style3 {
              height: 112px;
          }
