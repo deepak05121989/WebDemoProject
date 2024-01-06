@@ -23,7 +23,7 @@ namespace WebDemoProject
             try
             {
                 //save database
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-MFTT75J;Initial Catalog=TestDB;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-HMJJQP2;Initial Catalog=TestDB;Integrated Security=True"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
