@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebDemoProject
+namespace WebDemoProject.Customer
 {
 
 
-    public partial class Layout
+    public partial class Customer
     {
 
         /// <summary>

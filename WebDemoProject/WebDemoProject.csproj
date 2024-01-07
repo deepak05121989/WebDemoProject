@@ -68,10 +68,64 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin\css\style-mobile.css" />
+    <Content Include="Admin\css\style-narrow.css" />
+    <Content Include="Admin\css\style-wide.css" />
+    <Content Include="Admin\css\style.css" />
+    <Content Include="Admin\documentation\index.html" />
+    <Content Include="Admin\fonts\News Cycle SIL OFL Font License 1.1.txt" />
+    <Content Include="Admin\images\banner.jpg" />
+    <Content Include="Admin\images\facebook.png" />
+    <Content Include="Admin\images\graphic.jpg" />
+    <Content Include="Admin\images\header.png" />
+    <Content Include="Admin\images\pattern.png" />
+    <Content Include="Admin\images\rss.png" />
+    <Content Include="Admin\images\transparent.png" />
+    <Content Include="Admin\images\twitter.png" />
+    <Content Include="Admin\js\html5shiv.js" />
+    <Content Include="Admin\js\jquery.dropotron.js" />
+    <Content Include="Admin\js\jquery.dropotron.min.js" />
+    <Content Include="Admin\js\skel.min.js" />
     <Content Include="Contact.aspx" />
+    <Content Include="css\style-mobile.css" />
+    <Content Include="css\style-narrow.css" />
+    <Content Include="css\style-wide.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Customer\css\style-mobile.css" />
+    <Content Include="Customer\css\style-narrow.css" />
+    <Content Include="Customer\css\style-wide.css" />
+    <Content Include="Customer\css\style.css" />
+    <Content Include="Customer\CustomerHome.aspx" />
+    <Content Include="Customer\CustomerProfile.aspx" />
+    <Content Include="Customer\documentation\index.html" />
+    <Content Include="Customer\fonts\News Cycle SIL OFL Font License 1.1.txt" />
+    <Content Include="Customer\images\banner.jpg" />
+    <Content Include="Customer\images\facebook.png" />
+    <Content Include="Customer\images\graphic.jpg" />
+    <Content Include="Customer\images\header.png" />
+    <Content Include="Customer\images\pattern.png" />
+    <Content Include="Customer\images\rss.png" />
+    <Content Include="Customer\images\transparent.png" />
+    <Content Include="Customer\images\twitter.png" />
+    <Content Include="Customer\js\html5shiv.js" />
+    <Content Include="Customer\js\jquery.dropotron.js" />
+    <Content Include="Customer\js\jquery.dropotron.min.js" />
+    <Content Include="Customer\js\skel.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
+    <Content Include="images\banner.jpg" />
     <Content Include="images\eshopping.jpg" />
+    <Content Include="images\facebook.png" />
+    <Content Include="images\graphic.jpg" />
+    <Content Include="images\header.png" />
+    <Content Include="images\pattern.png" />
+    <Content Include="images\rss.png" />
+    <Content Include="images\transparent.png" />
+    <Content Include="images\twitter.png" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery.dropotron.js" />
+    <Content Include="js\jquery.dropotron.min.js" />
+    <Content Include="js\skel.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
@@ -90,6 +144,27 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Customer.Master.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\Customer.Master.designer.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerHome.aspx.cs">
+      <DependentUpon>CustomerHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerHome.aspx.designer.cs">
+      <DependentUpon>CustomerHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CustomerProfile.aspx.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\CustomerProfile.aspx.designer.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -126,6 +201,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Layout.Master" />
+    <Content Include="Customer\fonts\DroidSans-webfont.eot" />
+    <Content Include="Customer\fonts\DroidSans-webfont.woff" />
+    <Content Include="Customer\fonts\NewsCycle-Regular.eot" />
+    <Content Include="Customer\fonts\NewsCycle-Regular.ttf" />
+    <Content Include="Admin\fonts\DroidSans-webfont.eot" />
+    <Content Include="Admin\fonts\DroidSans-webfont.woff" />
+    <Content Include="Admin\fonts\NewsCycle-Regular.eot" />
+    <Content Include="Admin\fonts\NewsCycle-Regular.ttf" />
+    <Content Include="Customer\Customer.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
