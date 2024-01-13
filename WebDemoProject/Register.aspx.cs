@@ -23,7 +23,7 @@ namespace WebDemoProject
             try
             {
                 //save database
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-HMJJQP2;Initial Catalog=TestDB;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-MFTT75J;Initial Catalog=TestDB;Integrated Security=True"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
@@ -48,7 +48,19 @@ namespace WebDemoProject
                     int result = cmd.ExecuteNonQuery();
                     if (result > 0)
                     {
-                        lblErrorMessage.Text = "Insert successfuly";
+                        string sqlLoginQuery = "insert into login([UserId], [Pass],[role]) values(@user,@password,@role)";
+                        cmd.CommandText = sqlLoginQuery;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@user", textUserId.Text);
+
+                        cmd.Parameters.AddWithValue("@password", textPssword.Text);
+                        cmd.Parameters.AddWithValue("@role", "customer");
+                        int result1 = cmd.ExecuteNonQuery();
+                        if(result1>0)
+                        {
+                            lblErrorMessage.Text = "Insert successful";
+                        }
+
                     }
                     else
                     {

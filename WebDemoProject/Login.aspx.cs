@@ -21,11 +21,11 @@ namespace WebDemoProject
             try
             {
                 //save database
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-HMJJQP2;Initial Catalog=TestDB;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-MFTT75J;Initial Catalog=TestDB;Integrated Security=True"))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    string sqlQuery = "select UserId from register where UserId=@UserId and Pass=@Pass";
+                    string sqlQuery = "select UserId,role from login where UserId=@UserId and Pass=@Pass";
                     cmd.CommandText = sqlQuery;
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
@@ -34,7 +34,17 @@ namespace WebDemoProject
                     SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        Response.Redirect("Home.aspx");
+                        if (dr["role"].ToString() == "customer")
+                        {
+                            Session["userid"] = TextBox1.Text;
+                            Response.Redirect("~\\Customer\\CustomerHome.aspx");
+                        }
+                        else
+                        {
+                            Session["adminuserid"] = TextBox1.Text;
+                            Response.Redirect("~\\Admin\\AdminHome.aspx");
+
+                        }
                     }
                     else
                     {

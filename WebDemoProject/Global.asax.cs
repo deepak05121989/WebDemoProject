@@ -13,6 +13,7 @@ namespace WebDemoProject
         protected void Application_Start(object sender, EventArgs e)
         {
             ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            Application["visit"] = 1;
         }
     }
 }

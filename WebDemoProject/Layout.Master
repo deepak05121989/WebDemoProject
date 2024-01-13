@@ -71,6 +71,9 @@
     <form id="form1" runat="server">
        <div id="header_container">		
 		    <div class="container">
+				<div style="text-align:right;">
+					<span>Welcome : </span><asp:Label ID="lblUserId" runat="server" Text="Guest"></asp:Label>&nbsp; <asp:LinkButton ID="linkLogin" runat="server" OnClick="linkLogin_Click">Login</asp:LinkButton>
+				</div>
 			<!-- Header -->
 				<div id="header" class="row">
 					<div class="4u">
@@ -176,6 +179,9 @@
 					<p><img src="images/twitter.png" alt="twitter" />&nbsp;<img src="images/facebook.png" alt="facebook" />&nbsp;<img src="images/rss.png" alt="rss" /></p>
 					<p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="apage.html">A Page</a> | <a href="anotherpage.html">Another Page</a> | <a href="contact.php">Contact Us</a></p>
 					<p>Copyright &copy; CSS3_tuned | <a href="http://skeljs.org/">skel.js</a> | <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a></p>
+					<div>
+						Number of Visit:<asp:Label ID="lblNoOfVisit" runat="server" Text="Label"></asp:Label>
+					</div>
 				</footer>		
 			</div>		
     </form>
