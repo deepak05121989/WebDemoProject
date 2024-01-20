@@ -178,7 +178,7 @@
 				<footer>
 					<p><img src="images/twitter.png" alt="twitter" />&nbsp;<img src="images/facebook.png" alt="facebook" />&nbsp;<img src="images/rss.png" alt="rss" /></p>
 					<p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="apage.html">A Page</a> | <a href="anotherpage.html">Another Page</a> | <a href="contact.php">Contact Us</a></p>
-					<p>Copyright &copy; CSS3_tuned | <a href="http://skeljs.org/">skel.js</a> | <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a></p>
+					<p>Copyright &copy; CSS3_tuned <asp:Label ID="lblCopyRight" runat="server" Text="Label"></asp:Label> | <a href="http://skeljs.org/">skel.js</a> | <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a></p>
 					<div>
 						Number of Visit:<asp:Label ID="lblNoOfVisit" runat="server" Text="Label"></asp:Label>
 					</div>

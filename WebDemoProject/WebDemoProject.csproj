@@ -112,6 +112,7 @@
     <Content Include="Customer\js\jquery.dropotron.js" />
     <Content Include="Customer\js\jquery.dropotron.min.js" />
     <Content Include="Customer\js\skel.min.js" />
+    <Content Include="Database\DemoProjectscript.sql" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="images\banner.jpg" />

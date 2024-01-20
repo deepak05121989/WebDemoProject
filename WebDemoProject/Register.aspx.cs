@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 
 namespace WebDemoProject
@@ -22,15 +23,16 @@ namespace WebDemoProject
         {
             try
             {
+                string connectionString = ConfigurationManager.ConnectionStrings["TestDBConnection"].ConnectionString;
                 //save database
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-MFTT75J;Initial Catalog=TestDB;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    string sqlQuery = "insert into register([Fname], [Lname], [UserId], [Pass], [EmailId], [Mobile], [Address], [PinCode], [State], [City], [Gender], [Age]) values(@Fname, @Lname, @UserId, @Pass, @EmailId, @Mobile, @Address, @PinCode, @State, @City, @Gender, @Age)";
+                    string sqlQuery = "usp_register";
                     cmd.CommandText = sqlQuery;
                     cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Fname", textFirstName.Text);
 
                     cmd.Parameters.AddWithValue("@Lname", textLastName.Text);
@@ -45,22 +47,15 @@ namespace WebDemoProject
                     cmd.Parameters.AddWithValue("@City", dropCity.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@Gender", radioGender.Text);
                     cmd.Parameters.AddWithValue("@Age", textAge.Text);
-                    int result = cmd.ExecuteNonQuery();
-                    if (result > 0)
+                    int result =(int)cmd.ExecuteScalar();
+                    if (result == 2)
                     {
-                        string sqlLoginQuery = "insert into login([UserId], [Pass],[role]) values(@user,@password,@role)";
-                        cmd.CommandText = sqlLoginQuery;
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@user", textUserId.Text);
 
-                        cmd.Parameters.AddWithValue("@password", textPssword.Text);
-                        cmd.Parameters.AddWithValue("@role", "customer");
-                        int result1 = cmd.ExecuteNonQuery();
-                        if(result1>0)
-                        {
-                            lblErrorMessage.Text = "Insert successful";
-                        }
-
+                        lblErrorMessage.Text = "User already exist Please provide unique username";
+                    }
+                    else if(result>0)
+                    {
+                        lblErrorMessage.Text = "Inset Successfull";
                     }
                     else
                     {

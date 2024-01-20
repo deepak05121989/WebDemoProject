@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace WebDemoProject
 {
@@ -20,15 +21,16 @@ namespace WebDemoProject
         {
             try
             {
+                string connectionString = ConfigurationManager.ConnectionStrings["TestDBConnection"].ConnectionString;
                 //save database
-                using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-MFTT75J;Initial Catalog=TestDB;Integrated Security=True"))
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
-                    string sqlQuery = "select UserId,role from login where UserId=@UserId and Pass=@Pass";
+                    string sqlQuery = "usp_login";
                     cmd.CommandText = sqlQuery;
                     cmd.Connection = con;
-                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@UserId", TextBox1.Text);
                     cmd.Parameters.AddWithValue("@Pass", TextBox2.Text);
                     SqlDataReader dr = cmd.ExecuteReader();
