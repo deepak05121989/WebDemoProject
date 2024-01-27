@@ -16,7 +16,8 @@
                 <table cellpadding="10" cellspacing="18" class="auto-style1">
                     <tr>
                         <td>
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="123px" ImageUrl='<%# Eval("pro_image") %>' Width="188px" />
+                            <asp:ImageButton ID="ImageButton1" runat="server" Height="123px" ImageUrl='<%# Eval("pro_image") %>'
+                                PostBackUrl='<%# Eval("pro_id","ProductDetails.aspx?ProId={0}") %>' Width="188px" />
                         </td>
                     </tr>
                     <tr>
@@ -32,7 +33,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="Button1" runat="server" BackColor="Yellow" BorderColor="#CCCC00" Height="38px" Text="Add To Cart" Width="101px" />
+                            <asp:Button ID="Button1" runat="server" BackColor="Yellow" BorderColor="#CCCC00" Height="38px" Text="Add To Cart" Width="101px" PostBackUrl='<%# Eval("pro_id","CartPage.aspx?ProId={0}") %>' />
                         </td>
                     </tr>
                 </table>

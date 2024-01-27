@@ -88,6 +88,7 @@
     <Content Include="Admin\js\jquery.dropotron.min.js" />
     <Content Include="Admin\js\skel.min.js" />
     <Content Include="Admin\ManageProduct.aspx" />
+    <Content Include="CartPage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="css\style-mobile.css" />
     <Content Include="css\style-narrow.css" />
@@ -130,6 +131,7 @@
     <Content Include="js\jquery.dropotron.min.js" />
     <Content Include="js\skel.min.js" />
     <Content Include="Login.aspx" />
+    <Content Include="ProductDetails.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
@@ -155,6 +157,13 @@
     </Compile>
     <Compile Include="Admin\ManageProduct.aspx.designer.cs">
       <DependentUpon>ManageProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CartPage.aspx.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CartPage.aspx.designer.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -184,6 +193,7 @@
     <Compile Include="Customer\CustomerProfile.aspx.designer.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DBContext\SQLHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +217,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>

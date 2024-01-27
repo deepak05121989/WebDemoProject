@@ -7,13 +7,13 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
-
+using WebDemoProject.DBContext;
 
 namespace WebDemoProject
 {
     public partial class Register : System.Web.UI.Page
     {
-       
+       SQLHelper sQLHelper= new SQLHelper();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,31 +23,23 @@ namespace WebDemoProject
         {
             try
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["TestDBConnection"].ConnectionString;
-                //save database
-                using (SqlConnection con = new SqlConnection(connectionString))
+                string sqlQuery = "usp_register";
+                SqlParameter[] pram =
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    string sqlQuery = "usp_register";
-                    cmd.CommandText = sqlQuery;
-                    cmd.Connection = con;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Fname", textFirstName.Text);
-
-                    cmd.Parameters.AddWithValue("@Lname", textLastName.Text);
-
-                    cmd.Parameters.AddWithValue("@UserId", textUserId.Text);
-                    cmd.Parameters.AddWithValue("@Pass", textPssword.Text);
-                    cmd.Parameters.AddWithValue("@EmailId", textEmail.Text);
-                    cmd.Parameters.AddWithValue("@Mobile", textMobile.Text);
-                    cmd.Parameters.AddWithValue("@Address", textAddress.Text);
-                    cmd.Parameters.AddWithValue("@PinCode", textPinCode.Text);
-                    cmd.Parameters.AddWithValue("@State", dropState.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@City", dropCity.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@Gender", radioGender.Text);
-                    cmd.Parameters.AddWithValue("@Age", textAge.Text);
-                    int result =(int)cmd.ExecuteScalar();
+                    new SqlParameter("@Fname", textFirstName.Text),
+                    new SqlParameter("@Lname", textLastName.Text),
+                    new SqlParameter("@UserId", textUserId.Text),
+                    new SqlParameter("@Pass", textPssword.Text),
+                    new SqlParameter("@EmailId", textEmail.Text),
+                    new SqlParameter("@Mobile", textMobile.Text),
+                    new SqlParameter("@Address", textAddress.Text),
+                    new SqlParameter("@PinCode", textPinCode.Text),
+                    new SqlParameter("@State", dropState.SelectedItem.ToString()),
+                    new SqlParameter("@City", dropCity.SelectedItem.ToString()),
+                    new SqlParameter("@Gender", radioGender.Text),
+                    new SqlParameter("@Age", textAge.Text)
+                };
+                int result=sQLHelper.ExecuteNonQueryByProc(sqlQuery, pram);
                     if (result == 2)
                     {
 
@@ -61,8 +53,6 @@ namespace WebDemoProject
                     {
                         lblErrorMessage.Text = "Inset Fail, try again";
                     }
-                    con.Close();
-                }
             }
             catch(SqlException ex)
             {
