@@ -38,17 +38,25 @@ namespace WebDemoProject.DBContext
         {
             return 0;
         }
-        public int ExecuteNonQueryByProc(string procName, SqlParameter[] sqlParameters)
+        public int ExecuteScalarByProc(string procName, SqlParameter[] sqlParameters)
         {
             SqlParameter[] pram= new SqlParameter[sqlParameters.Length];
             _command.CommandText= procName;
             _command.CommandType = CommandType.StoredProcedure;
-            _command.Parameters.Add(sqlParameters);
-            return _command.ExecuteNonQuery();
-            //foreach (var item in sqlParameters)
-            //{
-            //    pram.
-            //}
+            _command.Parameters.AddRange(sqlParameters);
+            return (int)_command.ExecuteScalar();
+
+        }
+        public DataSet GetDataSetByProc(string procName, SqlParameter[] sqlParameters)
+        {
+            SqlParameter[] pram = new SqlParameter[sqlParameters.Length];
+            _command.CommandText = procName;
+            _command.CommandType = CommandType.StoredProcedure;
+            _command.Parameters.AddRange(sqlParameters);
+            SqlDataAdapter ad = new SqlDataAdapter(_command);
+            DataSet ds = new DataSet();
+            ad.Fill(ds);
+            return ds;
 
         }
 

@@ -13,7 +13,7 @@ namespace WebDemoProject
 {
     public partial class Register : System.Web.UI.Page
     {
-       SQLHelper sQLHelper= new SQLHelper();
+        SQLHelper sQLHelper = null;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,6 +23,7 @@ namespace WebDemoProject
         {
             try
             {
+                sQLHelper = new SQLHelper();
                 string sqlQuery = "usp_register";
                 SqlParameter[] pram =
                 {
@@ -39,7 +40,7 @@ namespace WebDemoProject
                     new SqlParameter("@Gender", radioGender.Text),
                     new SqlParameter("@Age", textAge.Text)
                 };
-                int result=sQLHelper.ExecuteNonQueryByProc(sqlQuery, pram);
+                int result=sQLHelper.ExecuteScalarByProc(sqlQuery, pram);
                     if (result == 2)
                     {
 
@@ -68,6 +69,39 @@ namespace WebDemoProject
         protected void textMobile_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void textUserId_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                sQLHelper = new SQLHelper();
+                string sqlQuery = "usp_IsUserValid";
+                SqlParameter[] pram =
+                {
+                    new SqlParameter("@UserId", textUserId.Text)
+                };
+                DataSet ds = sQLHelper.GetDataSetByProc(sqlQuery, pram);
+                if (ds.Tables[0].Rows.Count> 0)
+                {
+                    lblUserErrorMessage.ForeColor = System.Drawing.Color.Red;
+                    lblUserErrorMessage.Text = "User already exist Please provide unique username";
+                }
+                else
+                {
+                    lblUserErrorMessage.ForeColor = System.Drawing.Color.Green;
+                    lblUserErrorMessage.Text = "User id is available";
+                }
+                
+            }
+            catch (SqlException ex)
+            {
+                lblErrorMessage.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                lblErrorMessage.Text = ex.Message;
+            }
         }
     }
 }
